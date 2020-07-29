@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Honeypot 1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Konfigurasi Honeypot Pada VPS" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Honeypot
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#malware">Malware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dionaea">Dionaea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#daftar-pustaka">Daftar Pustaka</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remarks.html">Remarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kelompok.html">Kelompok 1 Malware III RKS Blue</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Honeypot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="malware">
+<h2>Malware<a class="headerlink" href="#malware" title="Permalink to this headline">¶</a></h2>
+<p>Malware berasal dari kata malicious software yang dapat berarti sebuah perangkat lunak yang sengaja diciptakan untuk merusak sebuah sistem [1]. Dari survey yang dilakukan oleh Paolo Passeri, serangan siber masih didominasi oleh serangan Malware, yaitu sebesar 35,61% [2]. Menurut [3], Proses web crawling terdiri dari dua jenis, yaitu Collecting Static Data dan Collecting Dynamic Data. Collectiong Static Data berarti melakukan crawling pada situs website yang statik, dan kemudian akan dilakukan ekstrasi informasi menggunakan metode sesuai kaidah (Resource Description Framework) RDF dan Web Ontology Language (OWL). Berbeda dengan static, Collecting Dynamic Data merupakan proses pengambilan data pada situs web yang bisa saja berubah-ubah dari waktu ke waktu. Proses crawling memerlukan sebuah perangkat berupa server yang terhubung ke internet dan mendukung bahasa pemrograman Python versi 2.x.</p>
+<p>Collecting Static Data Process</p>
+<a class="reference internal image-reference" href="../_images/gambar1.png"><img alt="../_images/gambar1.png" class="align-center" src="../_images/gambar1.png" style="width: 400px;" /></a>
+<p>Collecting Dynamic Data Process</p>
+<a class="reference internal image-reference" href="../_images/gambar2.png"><img alt="../_images/gambar2.png" class="align-center" src="../_images/gambar2.png" style="width: 400px;" /></a>
+</div>
+<div class="section" id="dionaea">
+<h2>Dionaea<a class="headerlink" href="#dionaea" title="Permalink to this headline">¶</a></h2>
+<p>Dionaea merupakan sebuah honeypot yang dirancang untuk menjebak malware yang mengeksploitasi kerawanan layanan dalam jaringan, sehingga didapatkan salinan dari malware tersebut. Dionaea dapat menghasilkan log dalam format basis data menggunakan SQLite di samping log dalam format teks, sehingga lebih mudah untuk dilakukan analisis [4]. Karena Dionaea dapat menentukan host yang terinfeksi malware, maka tindakan pada host yang terinfeksi dapat dilakukan agar dapat dihentikan penyebaran malware tersebut ke host lain dalam jaringan.</p>
+<p>Cara Kerja Dionaea</p>
+<p>Tujuan Dionaea adalah untuk menjebak malware mengeksploitasi kerentanan yang diekspos oleh layanan pada sebuah jaringan, tujuannya adalah untuk mendapatkan salinan malware tersebut. Sehingga dapat dikatakan bahwa Dionaea bertujuan untuk mendapatkan duplikasi data dari malware [4]. Perangkat lunak (software) cenderung memiliki bug, yang seringkali dapat dieksploitasi oleh pihak lain untuk memperoleh informasi atau keuntungan. Dionaea menggunakan bahasa pemrograman python sebagai bahasa scripting, libemu untuk mendeteksi shellcode, mendukung Ipv6 dan TLS.</p>
+</div>
+<div class="section" id="daftar-pustaka">
+<h2>Daftar Pustaka<a class="headerlink" href="#daftar-pustaka" title="Permalink to this headline">¶</a></h2>
+<p>[1] N. Idika and A. P. Mathur, “A survey of malware detection techniques,” Purdue Univ., p. 48, 2007.</p>
+<p>[2] Paolo Passeri, “January – September 2018 Cyber Attack Statistics,” 2018. [Online]. Available:https://www.hackmageddon.com/2018/10/15/january-september- 2018-cyber-attack-statistics/. [Accessed: 24-Junet-2020].</p>
+<p>[3] S. M. Kim and Y. G. Ha, “Automated Discovery of Small Business Domain Knowledge using Web Crawling and Data Mining,” 2016 Int. Conf. Big Data Smart Comput. BigComp 2016, pp. 481–484.</p>
+<p>[4] Suzuki, H. (2011) Internet Infrastucture Review, Internet Initiative Japan, Vol 11.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Konfigurasi Honeypot Pada VPS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Kelompok 1 RKS Blue
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

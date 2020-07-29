@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; Honeypot 1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Usage" href="usage.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Honeypot
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-dependencies">Install Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-dionaea">Install Dionaea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-the-dionaea-config">Update the Dionaea Config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mengidentifikasi-malware">Mengidentifikasi Malware</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remarks.html">Remarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kelompok.html">Kelompok 1 Malware III RKS Blue</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Honeypot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-dependencies">
+<h2>Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Sebelum menginstall dionaea ada beberapa hal yang harus dipersiapkan berikut adalah perintah-perintah yang harus dilakukan dalam menginstall dionaea :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt update
+$ sudo apt install git
+$ sudo apt install aptitude
+$ sudo apt install net-tools
+$ sudo apt install sqlite3
+$ git clone https://github.com/DinoTools/dionaea.git
+$ sudo apt install <span class="se">\</span>
+build-essential <span class="se">\</span>
+check cmake <span class="se">\</span>
+cython3 <span class="se">\</span>
+libemu-dev <span class="se">\</span>
+libev-dev <span class="se">\</span>
+libglib2.0-dev <span class="se">\</span>
+libloudmouth1-dev <span class="se">\</span>
+libnetfilter-queue-dev <span class="se">\</span>
+libnl-3-dev <span class="se">\</span>
+libpcap-dev <span class="se">\</span>
+libssl-dev <span class="se">\</span>
+libtool <span class="se">\</span>
+libudns-dev <span class="se">\</span>
+python3 <span class="se">\</span>
+python3-dev <span class="se">\</span>
+python-bson <span class="se">\</span>
+python3-yaml
+$ sudo aptitude -f install libcurl4-openssl-dev
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-dionaea">
+<h2>Install Dionaea<a class="headerlink" href="#install-dionaea" title="Permalink to this headline">¶</a></h2>
+<p>Setelah persiapan tersebut sekarang adalah menginstall dionaea.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> dionaea
+$ mkdir build
+$ cmake -DCMAKE_INSTALL_PREFIX:PATH<span class="o">=</span>/opt/dionaea ..
+$ make
+$ make install
+</pre></div>
+</div>
+<p>Dengan demikian, dionaea telah berhasil diinstall.
+Berikut ialah dokumentasi ketika Dioanea berhasil diinstall pada ubuntu 16.04.</p>
+<a class="reference internal image-reference" href="../_images/gambar3.png"><img alt="../_images/gambar3.png" class="align-center" src="../_images/gambar3.png" style="width: 400px;" /></a>
+</div>
+<div class="section" id="update-the-dionaea-config">
+<h2>Update the Dionaea Config<a class="headerlink" href="#update-the-dionaea-config" title="Permalink to this headline">¶</a></h2>
+<p>Setelah menginstall Dionaea sebelum dilanjutkan, kita perlu membuat beberapa perubahan konfigurasi. Dionaea memiliki beberapa masalah dengan IPv6 dan juga cukup bertele-tele dalam log-nya dengan konfigurasi default jadi edit file konfigurasi. Berikut ialah cara untuk mengupdate konfigurasi Dionaea.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ vi /opt/dionaea/etc/dionaea/dionaea.cfg
+</pre></div>
+</div>
+<p>Kemudian, ubah konfigurasi sebagai berikut, yaitu dengan mengubah variabel yang diinginkan.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>listen.mode<span class="o">=</span>manual
+listen.addresses<span class="o">=</span>&lt;ip address of the host&gt;
+
+default.levels<span class="o">=</span>warning,error
+
+errors.levels<span class="o">=</span>warning,error
+</pre></div>
+</div>
+</div>
+<div class="section" id="mengidentifikasi-malware">
+<h2>Mengidentifikasi Malware<a class="headerlink" href="#mengidentifikasi-malware" title="Permalink to this headline">¶</a></h2>
+<p>Agar dionaea dapat melakukan deteksi jenis virus dan dapat mengidentifikasinya menggunakan virus total, lakukan pengaturan terlebih dahulu pada bagian virustotal.yaml.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /opt/dionaea/etc/dionaea/ihandlers-avaiable
+$ nano virustotal.yaml
+</pre></div>
+</div>
+<p>Maka akan muncul tampilan sebagai berikut :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-name: virustotal
+ config:
+   <span class="c1"># grab it from your virustotal account at My account -&gt; My API Key (https://www.virustotal.com/en/user/&lt;username&gt;/apikey/)</span>
+   apikey: <span class="s2">&quot;.........&quot;</span>
+   file: <span class="s2">&quot;@DIONAEA_STATEDIR@/vtcache.sqlite&quot;</span>
+   <span class="c1"># comment: &quot;This sample was captured in the wild and uploaded by the dionaea honeypot.\n#honeypot #malware #networkworm&quot;</span>
+</pre></div>
+</div>
+<p>Lakukan perubahan pada isi apikey dengan API key akun virus total yang ingin digunakan. Simpan pengaturan tersebut.</p>
+<p>Masuk ke direktori ihandlers-enabled dengan perintah berikut</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /opt/dionaea/etc/dionaea/ihandlers-enabled
+</pre></div>
+</div>
+<p>Salin file virustotal.yaml yang telah diubah sebelumnya dengan perintah :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ln -s ../ihandlers-available/virustotal.yaml virustotal.yaml
+</pre></div>
+</div>
+<p>Setelah langkah tersebut dilakukan maka malware yang tertangkap oleh dionaea dapat diidentifikasi dengan melalui virustotal.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Kelompok 1 RKS Blue
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

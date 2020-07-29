@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Customization &mdash; Honeypot 1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Remarks" href="remarks.html" />
+    <link rel="prev" title="Usage" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Honeypot
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Customization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hardening">Hardening</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instalasi-cowrie">Instalasi Cowrie</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="remarks.html">Remarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kelompok.html">Kelompok 1 Malware III RKS Blue</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Honeypot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Customization</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/development.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="customization">
+<h1>Customization<a class="headerlink" href="#customization" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hardening">
+<h2>Hardening<a class="headerlink" href="#hardening" title="Permalink to this headline">¶</a></h2>
+<ol class="loweralpha simple">
+<li>Hardening Dionaea (SMB Service)</li>
+</ol>
+<p>Protokol utama yang ditawarkan oleh dionaea adalah SMB. SMB memiliki sejarah untuk bug yang dapat dieksploitasi dari jarak jauh, dan merupakan target yang sangat populer untuk worm. Implementasi SMB menggunakan versi scthon python3 yang diadaptasi. Selain itu serangan yang diketahui pada dionaea SMB mendukung pengunggahan file ke smb share. Hardening layanan SMB pada dionaea dapat menggunakan perintah :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /opt/dionaea/etc/dionaea/services-enabled/
+$ sudo nano smb.yaml
+</pre></div>
+</div>
+<p>Selanjutnya lakukan konfigurasi pada file smb.yml dengan melakukan uncomment pada beberapa perintah.</p>
+<p>Sebelum :</p>
+<a class="reference internal image-reference" href="../_images/gambar7.png"><img alt="../_images/gambar7.png" class="align-center" src="../_images/gambar7.png" style="width: 400px;" /></a>
+<p>Sesudah :</p>
+<a class="reference internal image-reference" href="../_images/gambar8.png"><img alt="../_images/gambar8.png" class="align-center" src="../_images/gambar8.png" style="width: 400px;" /></a>
+<ol class="loweralpha simple" start="2">
+<li>Hardening Dionaea (MS-SQL Server)</li>
+</ol>
+<p>Microsoft SQL Server adalah sebuah sistem manajemen basis data relasional (RDBMS) produk Microsoft. Bahasa query utamanya adalah Transact-SQL yang merupakan implementasi dari SQL standar ANSI/ISO yang digunakan oleh Microsoft dan Sybase. Umumnya SQL Server digunakan di dunia bisnis yang memiliki basis data berskala kecil sampai dengan menengah, tetapi kemudian berkembang dengan digunakannya SQL Server pada basis data besar. Hardening layanan MS-SQL Server pada dionaea dapat menggunakan perintah :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /opt/dionaea/lib/dionaea/python/dionaea/mssql/
+$ sudo nano mssql.py
+</pre></div>
+</div>
+<p>Selanjutnya lakukan konfigurasi pada file mssql.py sebagai berikut :</p>
+<p>Sebelum :</p>
+<a class="reference internal image-reference" href="../_images/gambar9.png"><img alt="../_images/gambar9.png" class="align-center" src="../_images/gambar9.png" style="width: 400px;" /></a>
+<p>Sesudah :</p>
+<a class="reference internal image-reference" href="../_images/gambar10.png"><img alt="../_images/gambar10.png" class="align-center" src="../_images/gambar10.png" style="width: 400px;" /></a>
+</div>
+<div class="section" id="instalasi-cowrie">
+<h2>Instalasi Cowrie<a class="headerlink" href="#instalasi-cowrie" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Pertama, lakukan update terhadap sistem yang akan digunakan sebagai honeypot. Setelah itu buat user tanpa password dengan nama ‘cowrie’.</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ apt-get update
+$ adduser --disabled-password cowrie
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/gambar11.png"><img alt="../_images/gambar11.png" class="align-center" src="../_images/gambar11.png" style="width: 400px;" /></a>
+<ol class="arabic simple" start="2">
+<li>Selanjutnya, melakukan instalasi dependecies dan package yang dibutuhkan oleh Cowrie. Diantaranya adalah iptables, python virtual environtment, fake root, authbind, dan git.</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ apt install -y iptables iptables-persistent linux-libc-dev make virtualenv python-virtualenv libfakeroot libssl-dev libffi-dev build-essential libpython3-dev python3-minimal authbind git
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Setelah berhasil melakukan instalasi, selanjutnya masuk sebagai cowrie dan download repositori Cowrie yang ada di GitHub.</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ su cowrie
+$ <span class="nb">cd</span> /home/cowrie
+$ git clone http://github.com/cowrie/cowrie
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Setelah berhasil men-download Cowrie, dilanjutkan dengan membuat Python virtual environment. Python virtual environment menyediakan lingkungan yang stabil dan terisolasi untuk python dependecies milik Cowrie. Selanjutnya, menjalankannya dan menginstall persyaratan tambahan menggunakan pip.</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> cowrie/
+$ virtualenv --python<span class="o">=</span>/usr/bin/python3 cowrie-env
+$ . cowrie-env/bin/activate
+$ pip install --upgrade -r requirements.txt
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Kemudian, melakukan konfigurasi pada file /bin/cowrie  dengan mengganti dari DAEMONIZE = “ “ menjadi DAEMONIZE=”-n” untuk menonaktifkan daemonisasi saat menggunakan supervisor.</li>
+</ol>
+<a class="reference internal image-reference" href="../_images/gambar12.png"><img alt="../_images/gambar12.png" class="align-center" src="../_images/gambar12.png" style="width: 400px;" /></a>
+<ol class="arabic simple" start="6">
+<li>Kemudian, melakukan konfigurasi untuk mengubah hostname dari fake root yang dibuat oleh Cowrie pada file “etc/cowrie.cfg.dist”.</li>
+</ol>
+<a class="reference internal image-reference" href="../_images/gambar13.png"><img alt="../_images/gambar13.png" class="align-center" src="../_images/gambar13.png" style="width: 400px;" /></a>
+<ol class="arabic simple" start="7">
+<li>Untuk melakukan pengujian terhadap Cowrie dapat dilakukan dengan mengaktifkannya dari user cowrie, namun setelah itu, dipastikan untuk menghentikannya. Cowrie yang berjalan saat login bukan sebagai root, akan membuat root tidak bisa menjalankannya sebagai service. Setelah diaktifkan, dapat diuji dengan mengakses honeypot melalui SSH di port 2222. Hasilnya akan ditunjukkan seperti pada Gambar 10, dimana kami akan login ke fake root  yang dibuat oleh Cowrie.</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ bin/cowrie start
+$ bin/cowrie stop
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/gambar14.png"><img alt="../_images/gambar14.png" class="align-center" src="../_images/gambar14.png" style="width: 400px;" /></a>
+<ol class="arabic simple" start="8">
+<li>Setelah menghentikan Cowrie, kembali ke root shell. Kemudian, membuat file Systemd unit yang bertujuan untuk menjalankan Cowrie sebagai root. Cowrie pun dapat diaktifkan melalui root seperti yang ditunjukkan pada Gambar 12. Berikut isi file nya,</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># nano /etc/systemd/system/cowrie-honeypot.service</span>
+
+<span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>Interactive SSH Honeypot
+<span class="nv">Wants</span><span class="o">=</span>network.target
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">Type</span><span class="o">=</span>simple
+<span class="nv">User</span><span class="o">=</span>cowrie
+<span class="nv">Group</span><span class="o">=</span>cowrie
+<span class="nv">ExecStart</span><span class="o">=</span>/home/cowrie/cowrie/bin/cowrie start
+<span class="nv">Restart</span><span class="o">=</span>on-failure
+<span class="nv">RestartSec</span><span class="o">=</span><span class="m">5</span>
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/gambar15.png"><img alt="../_images/gambar15.png" class="align-center" src="../_images/gambar15.png" style="width: 400px;" /></a>
+<ol class="arabic simple" start="9">
+<li>Honeypot yang menggunakan port 22 akan mendapatkan lebih banyak serangan dibanding menggunakan port lain, sehingga port asli dari server SSH diganti menjadi port selain 22 dan port yang tidak digunakan oleh layanan lain, disini kami menggunakan port 2233. Setelah itu, melakukan restart terhadap layanan SSH agar konfigurasi baru nya tersimpan.</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;Port 2332&quot;</span> &gt;&gt; /etc/ssh/sshd_config
+$ systemctl restart sshd.service
+</pre></div>
+</div>
+<p>Selanjutnya coba akses server SSH menggunakan port 2233.</p>
+<a class="reference internal image-reference" href="../_images/gambar16.png"><img alt="../_images/gambar16.png" class="align-center" src="../_images/gambar16.png" style="width: 400px;" /></a>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># iptables -A PREROUTING -t nat -p tcp --dport 22 -j REDIRECT --to-port 2222</span>
+<span class="c1"># iptables-save &gt; /etc/iptables/rules.v4</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/gambar17.png"><img alt="../_images/gambar17.png" class="align-center" src="../_images/gambar17.png" style="width: 400px;" /></a>
+<p>Selanjutnya aktifkan IP forwarding yang terdapat pada file “/etc/sysctl.conf”</p>
+<a class="reference internal image-reference" href="../_images/gambar18.png"><img alt="../_images/gambar18.png" class="align-center" src="../_images/gambar18.png" style="width: 400px;" /></a>
+<ol class="arabic simple" start="11">
+<li>Setelah itu, siapa pun yang mengakses server SSH sebagai root dan menggunakan port 22, secara otomatis akan diteruskan ke port 2222,  fake root yang dibuat oleh Cowrie.</li>
+</ol>
+<a class="reference internal image-reference" href="../_images/gambar19.png"><img alt="../_images/gambar19.png" class="align-center" src="../_images/gambar19.png" style="width: 400px;" /></a>
+<ol class="arabic simple" start="12">
+<li>Log dapat dilihat pada direktori /home/cowrie/cowrie/var/log/cowrie, terdapat file yang memiliki format log dan json. Format log ditunjukkan pada Gambar 17, sedangkan format json ditunjukkan pada gambar berikut.</li>
+</ol>
+<p>Format Log :</p>
+<a class="reference internal image-reference" href="../_images/gambar20.png"><img alt="../_images/gambar20.png" class="align-center" src="../_images/gambar20.png" style="width: 400px;" /></a>
+<p>Format json :</p>
+<a class="reference internal image-reference" href="../_images/gambar21.png"><img alt="../_images/gambar21.png" class="align-center" src="../_images/gambar21.png" style="width: 400px;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="remarks.html" class="btn btn-neutral float-right" title="Remarks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Kelompok 1 RKS Blue
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
