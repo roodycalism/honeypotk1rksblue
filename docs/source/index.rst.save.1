@@ -1,0 +1,257 @@
+.. Kelompok 1 RKS Blue documentation master file, created by
+   sphinx-quickstart on Tue Jul 28 13:01:07 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Konfigurasi Honeypot Pada VPS
+=============================
+
+.. toctree::
+   :maxdepth: 2   
+   
+
+
+
+###############
+1. Introduction
+###############
+
+Malware
+
+Malware berasal dari kata malicious software yang dapat berarti sebuah perangkat lunak yang sengaja diciptakan untuk merusak sebuah sistem [1]. Dari survey yang dilakukan oleh Paolo Passeri, serangan siber masih didominasi oleh serangan Malware, yaitu sebesar 35,61% [2]. Menurut [3], Proses web crawling terdiri dari dua jenis, yaitu Collecting Static Data dan COllecting Dynamic Data. Collectiong Static Data berarti melakukan crawling pada situs website yang statik, dan kemudian akan dilakukan ekstrasi informasi menggunakan metode sesuai kaidah (Resource Description Framework) RDF dan Web Ontology Language (OWL). Berbeda dengan static, Collecting Dynamic Data merupakan propses pengambilan data pada situs web yang bisa saja berubah-ubah dari waktu ke waktu. Proses crawling memerlukan sebuah perangkat berupa server yang terhubung ke internet dan mendukung bahasa pemrograman Python versi 2.x.
+
+.. image:: ../images/gambar1.png
+   :width: 400
+   :align: center
+
+Gambar 1. Collecting Static Data Process
+   
+.. image:: ../images/gambar2.png
+   :width: 400
+   :align: center
+
+Gambar 2. Collecting Dynamic Data Process
+
+Dionaea
+
+Dionaea merupakan sebuah honeypot yang dirancang untuk menjebak malware yang mengeksploitasi kerawanan layanan dalam jaringan, sehingga didapatkan salinan dari malware tersebut. Dionaea dapat menghasilkan log dalam format basis data menggunakan SQLite di samping log dalam format teks, sehingga lebih mudah untuk dilakukan analisis [4]. Karena Dionaea dapat menentukan host yang terinfeksi malware, maka tindakan pada host yang terinfeksi dapat dilakukan agar dapat dihentikan penyebaran malware tersebut ke host lain dalam jaringan.
+
+###############
+2. Installation
+###############
+
+Sebelum menginstal dionaea ada beberapa hal yang harus dipersiapkan berikut adalah perintah-perintah yang harus dilakukan dalam menginstal dionaea :
+
+.. code-block:: bash
+
+   $ sudo apt update
+   $ sudo apt install git
+   $ sudo apt install aptitude
+   $ sudo apt install net-tools
+   $ sudo apt install sqlite3
+   $ git clone https://github.com/DinoTools/dionaea.git
+   $ sudo apt install \
+   build-essential \
+   check cmake \
+   cython3 \
+   libemu-dev \
+   libev-dev \
+   libglib2.0-dev \
+   libloudmouth1-dev \
+   libnetfilter-queue-dev \
+   libnl-3-dev \
+   libpcap-dev \
+   libssl-dev \
+   libtool \
+   libudns-dev \
+   python3 \
+   python3-dev \
+   python-bson \
+   python3-yaml
+   $ sudo aptitude -f install libcurl4-openssl-dev
+
+Setelah persiapan tersebut sekarang adalah menginstall dionaea.
+
+.. code-block:: bash
+   
+   $ cd dionaea
+   $ mkdir build
+   $ cmake -DCMAKE_INSTALL_PREFIX:PATH=/opt/dionaea ..
+   $ make
+   $ make install
+
+Dengan demikian, dionaea telah berhasil diinstal.
+Berikut ialah dokumentasi ketika Dioanea berhasil diinstall pada ubuntu 16.04.
+
+.. image:: ../images/gambar3.png
+   :width: 400
+   :align: center
+
+############################
+3. Update the Dionaea Config
+############################
+
+Setelah menginstal Dionaea sebelum dilanjutkan, kita perlu membuat beberapa perubahan konfigurasi. Dionaea memiliki beberapa masalah dengan IPv6 dan juga cukup bertele-tele dalam log-nya dengan konfigurasi default jadi edit file konfigurasi. Berikut ialah cara untuk mengupdate konfigurasi Dionaea.
+
+.. code-block:: bash
+
+   $ vi /opt/dionaea/etc/dionaea/dionaea.cfg
+
+Kemudian, ubah konfigurasi sebagai berikut, yaitu dengan mengubah variabel yang diinginkan.
+
+.. code-block:: bash
+
+   listen.mode=manual
+   listen.addresses=<ip address of the host>
+
+   default.levels=warning,error
+
+   errors.levels=warning,error
+
+########
+3. Usage
+########
+
+Dalam penggunaannya, kita akan mencoba menjalankan perintah berikut.
+
+.. code-block:: bash
+
+   $ cd /opt/dionaea/bin
+   $ ./dionaea -D
+
+.. image:: ../images/gambar4.png
+   :width: 400
+   :align: center
+
+Kita juga bisa melihat status dari koneksi yang ada pada dionaea dengan menggunakan perintah berikut.
+
+.. code-block:: bash
+
+   $ netstat -atn
+
+.. image:: ../images/gambar5.png
+   :width: 400
+   :align: center
+
+Kita bisa melihat database dari koneksi yang ada dengan menggunakan perintah berikut.
+
+.. code-block:: bash
+
+   $ cd /opt/dionaea/var/lib/dionaea
+   $ sqlite3 dionaea.sqlite
+   sqlite > SELECT*FROM connections;
+
+.. image:: ../images/gambar6.png
+   :width: 400
+   :align: center
+
+############
+4. Hardening
+############
+
+a. Hardening Dionaea (SMB Service)
+
+Protokol utama yang ditawarkan oleh dionaea adalah SMB. SMB memiliki sejarah untuk bug yang dapat dieksploitasi dari jarak jauh, dan merupakan target yang sangat populer untuk worm. Implementasi SMB menggunakan versi scthon python3 yang diadaptasi. Selain itu serangan yang diketahui pada dionaea SMB mendukung pengunggahan file ke smb share. Hardening layanan SMB pada dionaea dapat menggunakan perintah :
+
+.. code-block:: bash
+
+   $ cd /opt/dionaea/etc/dionaea/services-enabled/
+   $ sudo nano smb.yaml
+
+Selanjutnya lakukan konfigurasi pada file smb.yml dengan melakukan uncomment pada beberapa perintah.
+
+Sebelum :
+
+.. image:: ../images/gambar7.png
+   :width: 400
+   :align: center
+
+Sesudah :
+
+.. image:: ../images/gambar8.png
+   :width: 400
+   :align: center
+
+b. Hardening Dionaea (MS-SQL Server)
+
+Microsoft SQL Server adalah sebuah sistem manajemen basis data relasional (RDBMS) produk Microsoft. Bahasa kueri utamanya adalah Transact-SQL yang merupakan implementasi dari SQL standar ANSI/ISO yang digunakan oleh Microsoft dan Sybase. Umumnya SQL Server digunakan di dunia bisnis yang memiliki basis data berskala kecil sampai dengan menengah, tetapi kemudian berkembang dengan digunakannya SQL Server pada basis data besar. Hardening layanan MS-SQL Server pada dionaea dapat menggunakan perintah :
+
+.. code-block:: bash
+
+   $ cd /opt/dionaea/lib/dionaea/python/dionaea/mssql/
+   $ sudo nano mssql.py
+
+Selanjutnya lakukan konfigurasi pada file mssql.py sebagai berikut :
+
+Sebelum :
+
+.. image:: ../images/gambar9.png
+   :width: 400
+   :align: center
+
+Sesudah :
+
+.. image:: ../images/gambar10.png
+   :width: 400
+   :align: center
+
+##############################
+5. Customization / Development
+##############################
+
+Instalasi Cowrie
+
+1. Pertama, lakukan update terhadap sistem yang akan digunakan sebagai honeypot. Setelah itu buat user tanpa password dengan nama 'cowrie'.
+
+.. code-block:: bash
+
+   $ apt-get update
+   $ adduser --disabled-password cowrie
+
+.. image:: ../images/gambar11.png
+   :width: 400
+   :align: center
+
+2. Selanjutnya, melakukan instalasi dependecies dan package yang dibutuhkan oleh Cowrie. Diantaranya adalah iptables, python virtual environtment, fake root, authbind, dan git.
+
+.. code-block:: bash
+
+   $ apt install -y iptables iptables-persistent linux-libc-dev make virtualenv python-virtualenv libfakeroot libssl-dev libffi-dev build-essential libpython3-dev python3-minimal authbind git
+
+3. Setelah berhasil melakukan instalasi, selanjutnya masuk sebagai cowrie dan download repositori Cowrie yang ada di GitHub.
+
+.. code-block:: bash
+
+   $ su cowrie
+   $ cd /home/cowrie
+   $ git clone http://github.com/cowrie/cowrie
+
+4. Setelah berhasil men-download Cowrie, dilanjutkan dengan membuat Python virtual environment. Python virtual environment menyediakan lingkungan yang stabil dan terisolasi untuk python dependecies milik Cowrie. Selanjutnya, menjalankannya dan menginstal persyaratan tambahan menggunakan pip.
+
+.. code-block:: bash
+
+   $ cd cowrie/
+   $ virtualenv --python=/usr/bin/python3 cowrie-env
+   $ . cowrie-env/bin/activate
+   $ pip install --upgrade -r requirements.txt
+
+5. Kemudian, melakukan konfigurasi pada file /bin/cowrie  dengan mengganti dari DAEMONIZE = “ “ menjadi DAEMONIZE=”-n” untuk menonaktifkan daemonisasi saat menggunakan supervisor.
+
+.. image:: ../images/gambar12.png
+   :width: 400
+   :align: center
+
+6. Kemudian, melakukan konfigurasi untuk mengubah hostname dari fake root yang dibuat oleh Cowrie pada file “etc/cowrie.cfg.dist”.
+
+.. image:: ../images/gambar13.png
+   :width: 400
+   :align: center
+
+7. Untuk melakukan pengujian terhadap Cowrie dapat dilakukan dengan mengaktifkannya dari user cowrie, namun setelah itu, dipastikan untuk menghentikannya. Cowrie yang berjalan saat login bukan sebagai root, akan membuat root tidak bisa menjalankannya sebagai service. Setelah diaktifkan, dapat diuji dengan mengakses honeypot melalui SSH di port 2222. Hasilnya akan ditunjukkan seperti pada Gambar 10, dimana kami akan login ke fake root  yang dibuat oleh Cowrie.
+
+.. code-block:: bash
+
+   $ bin/cowrie start
+   $ bin/cowrie stop
+
+7. Untuk melakukan pengujian terhadap Cowrie dapat dilakukan dengan mengaktifkannya dari user cowrie, namun setelah itu, dipastikan untuk menghentikannya. Cowrie yang berjalan saat login bukan sebagai root, akan membuat root tidak bisa menjalankannya sebagai service. Setelah diaktifkan, dapat diuji dengan mengakses honeypot melalui SSH di port 2222. Hasilnya akan ditunjukkan seperti pada Gambar 10, dimana kami akan login ke fake root  yang dibuat oleh Cowrie.

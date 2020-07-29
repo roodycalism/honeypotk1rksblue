@@ -1,0 +1,32 @@
+.. honeypot documentation master file, created by
+   sphinx-quickstart on Tue Jul 28 13:01:07 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Kelompok 1 III RKS Blue: Honeypot
+=================================
+
+.. toctree::
+   :maxdepth: 2   
+   
+
+
+
+############
+Introduction
+############
+
+
+Malware berasal dari kata malicious software yang dapat berarti sebuah perangkat lunak yang sengaja diciptakan untuk merusak sebuah sistem [1]. Dari survey yang dilakukan oleh Paolo Passeri, serangan siber masih didominasi oleh serangan Malware, yaitu sebesar 35,61% [2]. Menurut [3], Proses web crawling terdiri dari dua jenis, yaitu Collecting Static Data dan COllecting Dynamic Data. Collectiong Static Data berarti melakukan crawling pada situs website yang statik, dan kemudian akan dilakukan ekstrasi informasi menggunakan metode sesuai kaidah (Resource Description Framework) RDF dan Web Ontology Language (OWL). Berbeda dengan static, Collecting Dynamic Data merupakan propses pengambilan data pada situs web yang bisa saja berubah-ubah dari waktu ke waktu. Proses crawling memerlukan sebuah perangkat berupa server yang terhubung ke internet dan mendukung bahasa pemrograman Python versi 2.x.
+
+.. image:: ../images/gambar1.png
+   :width: 400
+   :align: center
+   
+   Gambar 1. Collecting Static Data Process
+
+.. i:: ../images/gambar2.png
+   :width: 400
+   :align: center
+
+   Gambar 2. Collecting Dynamic Data Process
